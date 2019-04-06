@@ -1,0 +1,6 @@
+<agm-map [latitude]='latitude' [longitude]='longitude' 
+      [mapTypeId]='mapType' [zoom]='zoom'
+      [streetViewControl]='streetViewControl'
+      [zoomControlOptions]="{position: 6}"
+      (mapClick)="mapClick(latitude, longitude)">
+</agm-map>

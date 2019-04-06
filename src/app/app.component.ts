@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Weather-Finder';
+  title = 'Weather-Finder'
+
+  public clickedEvent: Event;
+  
+  passEvent(event: Event)
+  {
+    this.clickedEvent = event;
+    console.log( event + " Passed to weather");
+  }
 }
