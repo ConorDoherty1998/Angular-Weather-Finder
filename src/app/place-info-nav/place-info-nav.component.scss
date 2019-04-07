@@ -1,0 +1,44 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+// .mat-toolbar {
+//   min-height: 10px;
+//   height: 1!important;
+// }
+/deep/.mat-tab-label, /deep/.mat-tab-label-active {
+  min-width: 0!important;
+  width: 50%;
+}
+.mat-sidenav {
+  width: 350px;
+}
+#buttonClose {
+  position: absolute;
+  bottom: 0;
+  left:0;
+}
+
+app-map {
+  height: 90%;
+  position: relative;
+}
+app-weather {
+  // background-color: rgba(107, 107, 107, 0.9);
+  font-weight: 400;
+  width: 100px!important;
+  position: relative;
+}

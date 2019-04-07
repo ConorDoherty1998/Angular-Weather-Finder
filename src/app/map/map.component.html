@@ -1,6 +1,7 @@
-<agm-map [latitude]='latitude' [longitude]='longitude' 
+<agm-map [latitude]='54.276194' [longitude]='-8.459080' 
       [mapTypeId]='mapType' [zoom]='zoom'
       [streetViewControl]='streetViewControl'
       [zoomControlOptions]="{position: 6}"
-      (mapClick)="mapClick(latitude, longitude)">
+      (mapClick)="mapClick($event)">
+      <agm-marker *ngIf="latlng" [latitude]="latlng[0]" [longitude]="latlng[1]"></agm-marker>
 </agm-map>

@@ -1,0 +1,22 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav disableClose position="end" #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+      <mat-tab-group>
+        <mat-tab label="Weather"><app-weather [WeatherData]="clickedEvent" ></app-weather></mat-tab>
+        <mat-tab label="Info"> Content 2 </mat-tab>
+      </mat-tab-group>
+      <div id="buttonClose" class="m-1">
+        <button (click)="drawer.toggle()" mat-fab color="primary">Close</button>
+      </div>
+      
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="md-tall" color="primary">
+      <span>Weather-Finder</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-map (mapClicked)="drawer.open()" (mapClicked)="passEvent($event)"></app-map>
+  </mat-sidenav-content>
+</mat-sidenav-container>

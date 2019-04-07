@@ -1,10 +1,18 @@
 <div *ngIf="locationData" class="container">
   <div class="row">
-      <div class="col text-left">{{locationData.city.name}}</div>
-      <div class="col text-right">Sunrise</div>
+      <div class="col text-left">{{locationData.city.name}},{{locationData.city.country}}</div>
+      <div class="col text-right"><div class="col">{{convertToCelcius(locationData.list[selectedDate].main.temp_min) + "-" + convertToCelcius(locationData.list[selectedDate].main.temp_max) + "°C " }}</div></div>
   </div>
   <div class="row">
-      <div class="col text-left">8-9°</div>
-      <div class="col text-right">Clear</div>
+      <div class="col text-left">{{locationData.list[selectedDate].weather[0].description}}</div>
   </div>
+  <div class="col text-fill">
+      <select (change)="onDayChanged($event)" class="form-control">
+          <option value="0">Today</option>
+          <option value="1">Tomorrow</option>
+          <option value="2">{{convertedTimes[2].getDate() + "/" + (convertedTimes[2].getMonth()+1)  +  "/" + convertedTimes[2].getFullYear()}}</option>
+          <option value="3">{{convertedTimes[3].getDate() + "/" + (convertedTimes[3].getMonth()+1)  +  "/" + convertedTimes[3].getFullYear()}}</option>
+          <option value="4">{{convertedTimes[4].getDate() + "/" + (convertedTimes[4].getMonth()+1)  +  "/" + convertedTimes[4].getFullYear()}}</option>
+        </select>
+    </div>
 </div>

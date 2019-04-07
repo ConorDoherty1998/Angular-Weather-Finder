@@ -1,27 +1,25 @@
 import { Component, OnInit, NgModule, Output } from '@angular/core';
-import { WeatherApiService } from '../weather-api.service'
 import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  latitude = 54.276194;
-  longitude = -8.459080;
   mapType = 'roadmap';
+  latlng: number[];
   streetViewControl = false;
   zoom = 13;
 
-  latlng: number[]
+  
   @Output() mapClicked: EventEmitter<any> = new EventEmitter();
   constructor() { }
   
-  mapClick(lat: number,lng: number) : void {
-    this.latlng = [lat,lng];
+  mapClick($event) : void {
+    this.latlng = [$event.coords.lat,$event.coords.lng];
     this.mapClicked.emit(this.latlng);
-    console.log("clicked :" + lat + "," + lng)
+    console.log("clicked :" + $event.coords.lat + "," + $event.coords.lat)
   }
   ngOnInit() {
   }
